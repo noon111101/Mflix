@@ -33,6 +33,9 @@ public class MyFilter implements Filter {
     private boolean process(HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (request.getRequestURI().startsWith("/css") || request.getRequestURI().startsWith("/images") || request.getRequestURI().startsWith("/templates")|| request.getRequestURI().startsWith("/js"))
             return false;
+        if (request.getRequestURI().startsWith("/api")) {
+            return false;
+        }
         IController controller = this.application.resolveControllerForRequest(request);
         if (controller == null) {
             System.out.println();

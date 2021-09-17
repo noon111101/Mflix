@@ -1,11 +1,37 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyDXjfz6wDP41VNexiZXvAx6R7bqcje5O8M",
-    authDomain: "mflix-cfae1.firebaseapp.com",
-    projectId: "mflix-cfae1",
-    storageBucket: "mflix-cfae1.appspot.com",
-    messagingSenderId: "332571057135",
-    appId: "1:332571057135:web:7cf44f92a96bcaebcdb41a",
-    measurementId: "G-VJGTYCHLL3"
+    apiKey: "AIzaSyBy7jLeJGFkf2f3NGj31HUinBoCoapLY_c",
+    authDomain: "mflix-3c4b9.firebaseapp.com",
+    projectId: "mflix-3c4b9",
+    storageBucket: "mflix-3c4b9.appspot.com",
+    messagingSenderId: "40233807911",
+    appId: "1:40233807911:web:0a6234bcc4ee4cef5ade02",
+    measurementId: "G-V36EWQNVE8"
+};
+
+var uiConfig = {
+    signInFlow: 'popup',
+    signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        "microsoft.com",
+        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+        signInSuccessWithAuthResult: function (authResult) {
+            if (authResult.user) {
+                handleSignedInUser(authResult.user);
+            }
+            return false;
+        },
+        signInFailure: function (error) {
+
+        }
+    },
+
+    autoUpgradeAnonymousUsers: true
 };
 var ui
 $(function () {
@@ -32,35 +58,8 @@ function handleSignedInUser(user) {
     }
     $('#modal-login').modal('hide');
 }
-
 function handleSignedOutUser() {
     ui.start("#firebaseui-auth-container", uiConfig);
     $(".user").addClass("d-none")
     $(".guest").removeClass("d-none")
 }
-
-var uiConfig = {
-    signInFlow: 'popup',
-    signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        // "microsoft.com",
-        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-    ],
-    callbacks: {
-        signInSuccessWithAuthResult: function (authResult) {
-            if (authResult.user) {
-                handleSignedInUser(authResult.user);
-            }
-            return false;
-        },
-        signInFailure: function (error) {
-
-        }
-    },
-
-    autoUpgradeAnonymousUsers: true
-};

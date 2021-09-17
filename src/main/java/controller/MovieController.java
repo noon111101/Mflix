@@ -21,7 +21,7 @@ public class MovieController extends MyController {
 
         ctx.setVariable("url", "movie?id=" + id);
 
-        FindIterable<Comment> comments = new CommentService().getComments("movie_id", movie.getMovieID());
+        FindIterable<Comment> comments = new CommentService().getComments("movie_id", movie.getId());
         ctx.setVariable("comments", comments);
 
         templateEngine.process("movie", ctx, response.getWriter());

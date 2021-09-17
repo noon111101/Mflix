@@ -26,7 +26,6 @@ public class MyApplication {
         templateResolver.setSuffix(".html");
         templateResolver.setCacheTTLMs(Long.valueOf(3600000L));
         templateResolver.setCacheable(true);
-        templateResolver.setCharacterEncoding("UTF-8");
         this.templateEngine = new TemplateEngine();
         this.templateEngine.setTemplateResolver(templateResolver);
         this.controllersByURL = new HashMap<>();

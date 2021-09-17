@@ -1,28 +1,13 @@
-
-
-html {
-    font-family: "Lato", sans-serif;
-    border-color: #736b5e;
-    background-color: #181a1b !important;
-    color: #e8e6e3 !important;
+.carousel-item{
+    height: 300px;
 }
-
-body {
-    color: rgb(209, 205, 199) !important;
-    background-color: rgb(24, 26, 27);
-    position: relative;
-    background-image: linear-gradient(
-            45deg,
-            rgba(2, 33, 64, 0.8) 55%,
-            rgba(45, 95, 93, 0.8)
-    ),url("../images/bgIM.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+.card-img-top{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    background: gray;
 }
-
-.movie-title {
-    color: rgb(199, 199, 25);
+.movie-title{
     height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -30,16 +15,7 @@ body {
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
 }
-
-.dropdown-menu-center {
-    transform: translate(-28%, 0) !important;
-}
-
-
-
-
-.movie-description {
-    color: #e8e6e3;
+.movie-description{
     height: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -48,7 +24,7 @@ body {
     -webkit-box-orient: vertical;
 }
 
-.movie-cast {
+.movie-cast{
     height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -57,34 +33,17 @@ body {
     -webkit-box-orient: vertical;
 }
 
-.card-img-top {
+.movie-poster{
     width: 100%;
-    height: 400px;
-    object-fit: cover;
     background: gray;
+    max-height: 600px;
+    min-height: 300px;
+    object-fit: cover;
 }
 
-.card {
-    background-color: #181a1b;
-}
-
-[class*='mdl-shadow'] {
+[class*='mdl-shadow']{
     box-shadow: none;
 }
-
-
-
-.movie-poster {
-    max-height: 600px;
-    width: 100%;
-    object-fit: cover;
-}
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+.dropdown-menu-center {
+    transform: translate(-28%, 0) !important;
 }

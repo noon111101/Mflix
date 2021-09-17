@@ -23,7 +23,12 @@ public class MovieDAO extends AbsDAO implements IMovieDAO {
     public List<Movie> searchMovies(Map filter, Map sort, int limit, int skip) {
         MongoCollection<Movie> movies = getDB().getCollection("movies", Movie.class);
         List<Movie> list = new ArrayList<>();
-        movies.find(new Document(filter)).sort(new Document(sort)).limit(limit).skip(skip).forEach(d -> list.add(d) );
+        movies.find(new Document(filter)).sort(new Document(sort)).limit(limit).skip(skip).forEach(d ->
+                {
+                    d.setMovieID(d.getId().toString());
+                    list.add(d);
+                }
+        );
         return list;
     }
 
